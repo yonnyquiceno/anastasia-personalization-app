@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'products#show'
   resources :category
   resources :manufacturer
   resources :products do

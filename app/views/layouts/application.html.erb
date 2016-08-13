@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>AnastasiaV3</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<html lang="en-US">
+  <head>
+    <title>Anastasia-v3</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render partial: "layouts/header" %>
+    <%= render partial: "layouts/product_menu" %>
+    <div class="container">
+      <%= render partial: "layouts/flash_messages", flash: flash %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>
