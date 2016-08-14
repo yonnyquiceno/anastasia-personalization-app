@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'products#show'
+  root to: 'products#new'
   resources :category
   resources :manufacturer
   resources :products do
