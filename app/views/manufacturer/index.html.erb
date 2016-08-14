@@ -1,0 +1,27 @@
+<h4>My Manufacturers</h4>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>E-mail</th>
+      <th>Photo</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manufacturers.each do |m| %>
+      <tr>
+        <td><%= m.first_name %></td>
+        <td><%= m.last_name %></td>
+        <td><%= m.email %></td>
+        <td><%= m.photo %></td>
+        <td><%= m.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
