@@ -1,0 +1,26 @@
+<h4>Products</h4>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th>Fabricante</th>
+      <th>Referencia</th>
+      <th>Aprobado</th>
+      <th>Enviado</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |m| %>
+      <tr>
+        <td><%= m.manufacturer_id %></td>
+        <td><%= m.category_id %></td>
+        <td><%= m.approved %></td>
+        <td><%= m.sended %></td>
+        <td><%= m.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

@@ -1,0 +1,20 @@
+<h4>Mis referencias</h4>
+
+<table class="table">
+  <thead>
+    <th>Referencia</th>
+    <th>Descripción</th>
+    <th>Imagen</th>
+    <th>Dimensión</th>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.category_name %></td>
+        <td><%= category.description %></td>
+        <td><%= category.image %></td>
+        <td><%= category.dimension %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
