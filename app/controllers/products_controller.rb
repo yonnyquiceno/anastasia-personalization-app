@@ -1,12 +1,13 @@
 #:nodoc:
 class ProductsController < ApplicationController
-  def show
-    @products = Product.all
-  end
+  before_action :find_product, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.all
-    flash[:error] = 'No products registered' if @products.empty?
+      @products = Product.all
+      flash[:error] = 'No products registered' if @products.empty?
+  end
+
+  def show
   end
 
   def new
@@ -14,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new
+    @product = Product.new(product_params)
     if @product.save
       flash[:success] = 'product registered successfully.'
       redirect_to products_path
@@ -24,10 +25,26 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+        redirect_to products_path
+    else
+      render "Edit"
+    end
+  end
+
+  def destroy
+  end
+
   def product_params
-    params.require(:product).permit(:manufacturer_id,
-                                    :category_id, :approved,
-                                    :sended, :price)
+    params.require(:product).permit(:category_id)
   end
   private :product_params
+
+  def find_product
+    @products = Product.find(params[:id]) 
+  end
 end
