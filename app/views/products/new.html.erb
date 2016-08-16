@@ -35,5 +35,10 @@
       <% end %>
     </div>
   </div>
+<ul>
+     <% Category.all.each do |category| %>
+    <li><%= link_to category.category_name, products_path(category: category.category_name) %></li>
+    <% end %>
+</ul>
 
 </div>
