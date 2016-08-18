@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'category#select'
   get '/categories/:id', to: 'articles#show', as: 'category_articles'
+  # get '/articles/new', to: 'articles#create', as: 'new_article'
+  resources :articles, only: [:index, :new, :create, :update, :destroy]
   resources :category
   resources :manufacturer
   resources :products do

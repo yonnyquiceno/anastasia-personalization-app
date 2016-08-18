@@ -2,18 +2,16 @@
 
 <table class="table">
   <thead>
+    <th>Id</th>
     <th>Referencia</th>
-    <th>Descripción</th>
     <th>Imagen</th>
-    <th>Dimensión</th>
   </thead>
   <tbody>
     <% @categories.each do |category| %>
       <tr>
+        <td><%= category.id %></td>
         <td><%= category.category_name %></td>
-        <td><%= category.description %></td>
         <td><%= category.image %></td>
-        <td><%= category.dimension %></td>
       </tr>
     <% end %>
   </tbody>

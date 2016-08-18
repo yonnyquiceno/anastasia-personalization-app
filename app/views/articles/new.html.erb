@@ -1,0 +1,61 @@
+<div class="row" >
+  <div class="col-md-3"></div>
+  <div class="col-md-6"> <h3> New Category </h3> </div>
+  <div class="col-md-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <%= form_for @article, url: {action: 'create'} do |art|%>
+      <div class="row">
+        <div class="col-md-6"> <%= art.label :article_name, for:'article_name'%> </div>
+        <div class="col-md-6">
+          <div class="form-group"> <%= art.text_field :article_name, class:'form-control' %> </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <%= art.label :description, for:'description'%> </div>
+        <div class="col-md-6">
+          <div class="form-group"> <%= art.text_field :description, class:'form-control' %> </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <%= art.label :image1, for:'image1'%> </div>
+        <div class="col-md-6">
+          <div class="form-group"> <%= art.text_field :image1, class:'form-control' %> </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <%= art.label :image2, for:'image2'%> </div>
+        <div class="col-md-6">
+          <div class="form-group"> <%= art.text_field :image2, class:'form-control' %> </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <%= art.label :image3, for:'image3'%> </div>
+        <div class="col-md-6">
+          <div class="form-group"> <%= art.text_field :image3, class:'form-control' %> </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"> <%= art.label :dimension, for:'dimension'%> </div>
+        <div class="col-md-6">
+          <div class="form-group"> <%= art.text_field :dimension, class:'form-control' %> </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= art.submit "Create article", class: 'btn btn-success'%>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+<%= link_to "Página princial", root_path, class: 'btn btn-default' %>

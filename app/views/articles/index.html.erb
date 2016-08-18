@@ -1,0 +1,32 @@
+<h4>Articles</h4>
+
+<table class="table">
+  <thead>
+    <th>Id</th>
+    <th>Article</th>
+    <th>Description</th>
+    <th>Image 1</th>
+    <th>Image 2</th>
+    <th>Image 3</th>
+    <th>Dimension</th>
+    <th>Available</th>
+    <th>Category</th>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td> <%= article.id %> </td>
+        <td><%= article.article_name %></td>
+        <td><%= article.description %></td>
+        <td> <%= article.image1 %> </td>
+        <td> <%= article.image2 %> </td>
+        <td> <%= article.image3 %> </td>
+        <td> <%= article.dimension %> </td>
+        <td> <%= article.available %> </td>
+        <td> <%= article.category_id %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Página princial", root_path, class: 'btn btn-default' %>
