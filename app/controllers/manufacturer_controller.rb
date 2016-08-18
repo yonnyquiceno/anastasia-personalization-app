@@ -5,6 +5,10 @@ class ManufacturerController < ApplicationController
     flash[:error] = 'No manufacturer registered' if @manufacturers.empty?
   end
 
+  def show
+    debugger
+  end
+
   def new
     @manufacturer = Manufacturer.new
   end

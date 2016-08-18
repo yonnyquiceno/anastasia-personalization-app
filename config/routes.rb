@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'products#new'
+  root to: 'category#select'
+  get '/categories/:id', to: 'articles#show', as: 'category_articles'
   resources :category
   resources :manufacturer
   resources :products do
