@@ -10,19 +10,26 @@
     <div class="container">
       <div class="products-item col-lg-4 col-md-6 col-s-12">
         <a href="#" class="products-item--link">
-          <%=image_tag("bags.jpg", alt: "Bags products", class: "products-item--img")%>
-          <div class="products-item--title"><%= link_to  "Bag", category_articles_path(6), class: 'products-item--link' %></div>
+          <%= link_to category_articles_path(6), class: 'products-item--link' do %>
+             <%= image_tag "bags.jpg", class: "products-item--img" %>
+          <% end %>
+          <div class="products-item--title">
+          <%= link_to  "Bag", category_articles_path(6), class: 'products-item--link' %></div>
         </a>
       </div>
       <div class="products-item col-lg-4 col-md-6 col-s-12">
         <a href="#" class="products-item--link">
-          <%=image_tag("scarfs.jpg", alt: "Bags products", class: "products-item--img")%>
+          <%= link_to category_articles_path(7), class: 'products-item--link' do %>
+             <%= image_tag "scarfs.jpg", class: "products-item--img" %>
+          <% end %>
           <div class="products-item--title"><%= link_to  "Scarf", category_articles_path(7), class: 'products-item--link' %></div>
         </a>
       </div>
       <div class="products-item col-lg-4 col-md-6 col-s-12">
         <a href="#" class="products-item--link">
-          <%=image_tag("carpets.jpg", alt: "Bags products", class: "products-item--img")%>
+          <%= link_to category_articles_path(8), class: 'products-item--link' do %>
+             <%= image_tag "carpets.jpg", class: "products-item--img" %>
+          <% end %>
           <div class="products-item--title"><%= link_to  "Carpet", category_articles_path(8), class: 'products-item--link' %></div>
         </a>
       </div>
