@@ -1,1 +1,5 @@
-Hola
+<%= render partial: "articles_slider", locals: {items: @items}%>
+<br />--------------------------------------------<br />
+<%= @item.description %><br />
+<%= @item.dimension %><br />
+<%= link_to 'next' %>

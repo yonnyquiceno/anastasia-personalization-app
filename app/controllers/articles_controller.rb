@@ -1,12 +1,16 @@
 #:nodoc:
 class ArticlesController < ApplicationController
   before_action :set_items
-  def show
+  def articles_index
   end
 
   def index
     @articles = Article.all
     flash[:error] = 'No articles registered.' if @articles.empty?
+  end
+
+  def show
+    @item = @items.find(params[:article_id])
   end
 
   def new
@@ -27,7 +31,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_items
-    @items = Article.where(category_id: params[:id])
+    @items = Article.where(category_id: params[:category_id])
   end
 
   def article_params
