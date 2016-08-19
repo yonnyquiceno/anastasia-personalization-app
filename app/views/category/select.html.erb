@@ -1,28 +1,30 @@
-<div class="row text-center">
-  <div class="row">
-    <h2>Personalizar</h2>
-  </div>
-  <br />
-  <div class="row">
-    <div class="col-md-4">
-        <div>
-        </div>
-        <div >
-          <%= link_to  "Bag", category_articles_path(6), class: 'btn btn-success' %>
-        </div>
+<!-- /.container -->
+    <div class="container">
+      <div id="owl-demo" class="owlCarousel owl-theme">
+          <div class="item"><%=image_tag("fullimage1.jpg", alt: "Example Image", class: "item-img")%></div>
+        <div class="item"><%=image_tag("fullimage2.jpg", alt: "Example Image", class: "item-img")%></div>
+        <div class="item"><%=image_tag("fullimage3.jpg", alt: "Example Image", class: "item-img")%></div>
+      </div>
     </div>
-    <div class="col-md-4"><div>
-        </div>
-        <div >
-          <%= link_to  "Scarf", category_articles_path(7), class: 'btn btn-success' %>
-        </div>
+<section class="products col-lg-12">
+    <div class="container">
+      <div class="products-item col-lg-4 col-md-6 col-s-12">
+        <a href="#" class="products-item--link">
+          <%=image_tag("bags.jpg", alt: "Bags products", class: "products-item--img")%>
+          <div class="products-item--title"><%= link_to  "Bag", category_articles_path(6), class: 'products-item--link' %></div>
+        </a>
+      </div>
+      <div class="products-item col-lg-4 col-md-6 col-s-12">
+        <a href="#" class="products-item--link">
+          <%=image_tag("scarfs.jpg", alt: "Bags products", class: "products-item--img")%>
+          <div class="products-item--title"><%= link_to  "Scarf", category_articles_path(7), class: 'products-item--link' %></div>
+        </a>
+      </div>
+      <div class="products-item col-lg-4 col-md-6 col-s-12">
+        <a href="#" class="products-item--link">
+          <%=image_tag("carpets.jpg", alt: "Bags products", class: "products-item--img")%>
+          <div class="products-item--title"><%= link_to  "Carpet", category_articles_path(8), class: 'products-item--link' %></div>
+        </a>
+      </div>
     </div>
-    <div class="col-md-4"><div>
-        </div>
-        <div >
-          <%= link_to  "Carpet", category_articles_path(8), class: 'btn btn-success' %>
-        </div>
-    </div>
-  </div>
-
-</div>
+</section>

@@ -1,39 +1,6 @@
 <div class="row text-center">
   <div class="row">
-    <h2>Personalizar</h2>
-  </div>
-  <br />
-  <div class="row">
-    <div class="col-md-4">
-      <%= form_for @product, url: {action: 'create'} do |f| %>
-        <div>
-          <%= f.collection_select :category_id, Category.all, :id, :category_name, {promt: "Choos a category"} %>
-        </div>
-        <div >
-          <%= f.submit "Bag", class: 'btn btn-success' %>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-md-4">
-      <%= form_for @product, url: {action: 'create'} do |f| %>
-        <div>
-          <%= f.collection_select :category_id, Category.all, :id, :category_name, {promt: "Choos a category"} %>
-        </div>
-        <div >
-          <%= f.submit "Scarf", class: 'btn btn-success' %>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-md-4">
-      <%= form_for @product, url: {action: 'create'} do |f| %>
-        <div>
-          <%= f.collection_select :category_id, Category.all, :id, :category_name, {promt: "Choos a category"} %>
-        </div>
-        <div >
-          <%= f.submit "Carpet", class: 'btn btn-success' %>
-        </div>
-      <% end %>
-    </div>
+    <h2>Nuevo Producto</h2>
   </div>
 <ul>
      <% Category.all.each do |category| %>
