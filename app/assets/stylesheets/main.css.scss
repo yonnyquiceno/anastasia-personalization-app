@@ -46,6 +46,20 @@ body {
 		&-collapse {
 			padding: 0px;
 		}
+
+		&-default {
+			box-shadow: none;
+
+			
+		}
+
+		&-nav > .active > a {
+			box-shadow: none;
+			background: none !important;
+			background-image: none !important;
+			border-bottom: 1px solid $color-grey;
+		}
+
 	}
 
 	.nav {
