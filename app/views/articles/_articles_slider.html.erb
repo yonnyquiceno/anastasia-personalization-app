@@ -1,30 +1,10 @@
-<% items.each do |item| %>
-  <%= link_to item.article_name, article_description_path(params[:category_id], item.id) %><br />
-<% end %>
-
   <div id="carousel-wrap">
     <ul id="carousel" class="top_slider roundabout-holder" style="margin-top: 200px;">
-      <li>
-        <span>
-          <a class="view-project-button" href="#"><span class="icon-custo-ico-02"></span></a>
-        </span>
-        <%= image_tag "bag1.jpg", class: "slide" %>
-      </li>
-      <li>
-        <span>
-          <a class="view-project-button" href="#">View Project</a>
-        </span>
-        <%= image_tag "bag2.jpg", class: "slide" %>
-      </li>
-      <li>
-        <span>
-          <a class="view-project-button" href="#">View Project</a>
-        </span>
-        <%= image_tag "bag3.jpg", class: "slide" %>
-      </li>
+    <% items.each do |item| %>
       <li>
         <span><a class="view-project-button" href="#">View Project</a></span>
-        <%= image_tag "bag4.jpg", class: "slide" %>
+        <%=link_to image_tag( item.image1, class: "slide"), article_description_path(params[:category_id], item.id) %>
       </li>
+      <%end%>
     </ul>
   </div>
