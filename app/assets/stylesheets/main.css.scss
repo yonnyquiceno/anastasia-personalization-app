@@ -1,0 +1,184 @@
+@import 'https://fonts.googleapis.com/css?family=Cedarville+Cursive|Lato';
+
+$font-body: 'Lato', sans-serif;
+$font-title: 'Cedarville Cursive', cursive;
+
+$font-size-small:	12px;
+$font-size-regular:	16px;
+$font-size-large:	24px;
+$font-size-x-large:	32px;
+$ont-size-xx-large:	48px;
+
+$color-red: #EC2145;
+$color-grey: #818285;
+$color-grey-light: #e7e7e7;
+
+$screen-sm-min: 768px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 992px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 1200px;
+$screen-md-max: ($screen-lg-min - 1);
+
+
+body {
+	font-size: 18px; 
+	font-family: $font-body !important;
+	color: $color-grey;
+}
+
+.header {
+
+	&-slider {
+		max-height: 380px;
+
+		&--img {
+			width: 100%;
+			height: auto;
+			display: block; 
+		}
+	}
+	
+	.navbar {
+		background: none;
+		border: 0px;
+
+		&-collapse {
+			padding: 0px;
+		}
+
+		&-default {
+			box-shadow: none;
+
+			
+		}
+
+		&-nav > .active > a {
+			box-shadow: none;
+			background: none !important;
+			background-image: none !important;
+			border-bottom: 1px solid $color-grey;
+		}
+
+	}
+
+	.nav {
+		display: block;
+		width: 100%;
+		@media (max-width: $screen-sm-max) {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		&-item {
+			display: block;
+			width: 16.6%;
+			@media (max-width: $screen-sm-max) {
+				width: 100%;
+				border-bottom: 1px solid $color-grey-light;
+			}
+
+			&--link {
+				display: block;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	#owl-demo {
+		margin: 20px 0px;
+	}
+
+}
+
+.item-img {
+		display: block !important;
+		width: 100% !important;
+		height: auto !important;
+	}
+
+.products {
+	display: block;
+	margin: 20px 0px;
+
+	.products-item {
+		padding: 20px;
+
+		&--link {
+			text-decoration: none;
+			transition: all 0.2s ease;
+
+			&:hover {
+				opacity: 0.3;
+			}
+
+		}
+
+		&--img {
+
+			width: 100%;
+			height: 100%;
+		}
+
+		&--title {
+			padding: 20px 0;
+			font-family: $font-title;
+			color: $color-red;
+			text-align: center;
+			font-size: $font-size-large;
+		}
+
+	}
+
+
+}
+
+.footer {
+	position: absolute;
+	right: 0;
+	left: 0;
+	display: block;
+	padding: 20px 0;
+
+	.socials {
+		display: block;
+		height: 40px;
+	}
+
+	.social {
+	    width: 245px;
+	    margin: 0px auto;
+
+		.social-item {
+			float: left;
+			list-style-type: none;
+
+			&--link {
+				display: block;
+				margin: 10px 5px;
+				width: 30px;
+				height: 30px;
+				background: $color-grey;
+				border-radius: 4px;
+				color: white;
+				text-align: center;
+				line-height: 30px;
+
+				font-size: $font-size-regular;
+
+				&:hover {
+					background: $color-grey-light;
+				}
+			}
+		}
+	}
+
+	.legal p{
+		padding: 10px 0px;
+		text-align: center;
+	}
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";

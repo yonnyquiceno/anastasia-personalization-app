@@ -12,7 +12,8 @@
     <div class="container">
       <%= render partial: "layouts/flash_messages", flash: flash %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
     </div>
   </body>
+  <%= render 'layouts/footer' %>
+  <%= javascript_include_tag 'roundabout', 'data-turbolinks-track' => true %>
 </html>

@@ -1,3 +1,10 @@
-<% items.each do |item| %>
-  <%= link_to item.article_name, article_description_path(params[:category_id], item.id) %><br />
-<% end %>
+  <div id="carousel-wrap">
+    <ul id="carousel" class="top_slider roundabout-holder" style="margin-top: 200px;">
+    <% items.each do |item| %>
+      <li>
+        <span><a class="view-project-button" href="#">View Project</a></span>
+        <%=link_to image_tag( item.image1, class: "slide"), article_description_path(params[:category_id], item.id) %>
+      </li>
+      <%end%>
+    </ul>
+  </div>
