@@ -1,3 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap/theme"; 
+@import "bootstrap/theme";
+
+.canvas-position{
+  position: absolute;
+  left: 300px;
+  top: 800px;
+}
