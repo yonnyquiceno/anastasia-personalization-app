@@ -3,11 +3,15 @@
 		<%= render partial: "articles_slider", locals: {items: @items}%>
 	</div>
 	<div class="col-lg-6 col-md-6 col-s-12">
-		
+		<%=image_tag( @item.image1, size:"300x300")%>
+
 	</div>
+
 	<div class="col-lg-6 col-md-6 col-s-12">
-		<%= @item.description %>
-		<%= @item.dimension %>
+		<h1><%= @item.article_name %></h1></br>
+		<h3><%= @item.dimension %></h3></br>
+		<%= @item.description %></br>
+		<%= @item.dimension %></br>
 	</div>
 </div>
 <%= link_to 'next' %>
