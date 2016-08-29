@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/categories/:category_id', to: 'articles#articles_index', as: 'category_articles'
   get '/categories/:category_id/articles/:article_id', to: 'articles#show', as: 'article_description'
   get '/categories/:category_id/articles/:article_id/parts/colour_personalization', to: 'articles#colour_personalization', as: 'article_color_personalization'
+  get '/products/cart/cart_resume', to: 'products#cart_resume', as: 'products_cart_resume'
 
   # get '/articles/new', to: 'articles#create', as: 'new_article'
   resources :articles, only: [:index, :new, :create, :update, :destroy]

@@ -1,9 +1,15 @@
 @import "main" 
 
 body 
-	font-size: 18px 
+	font-size: $font-size-small !important 
 	font-family: $font-body !important
+	font-weight: 400
 	color: $color-grey !important
+
+.title
+	font-family: $font-title !important
+	font-size: $font-size-xx-large
+	margin-bottom: 40px
 
 .header 
 
@@ -71,9 +77,6 @@ body
 
 			&:hover 
 				opacity: 0.3
-			
-
-		
 
 		&--img 
 
@@ -87,18 +90,18 @@ body
 			color: $color-red
 			text-align: center
 			font-size: $font-size-large
-		
-
-	
-
-
-
-
 .next-btn 
 	display: block
 	float: right
 	text-decoration: none
+	color: $color-grey
+	font-size: $font-size-regular
 
+	&:hover
+		text-decoration: none
+		color: $color-grey
+	& > .fa 
+		font-size: $font-size-x-large
 
 .footer 
 	position: absolute

@@ -15,5 +15,13 @@ $(document).ready(function() {
       // itemsMobile : false
  
   });
+
+  $(window).load(function() {
+      if (target) {
+          $('html, body').animate({
+              scrollTop: $("#slide" + target).offset().top
+          }, 700, 'swing', function () {});
+      }
+  });
  
 });
