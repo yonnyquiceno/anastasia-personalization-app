@@ -16,12 +16,7 @@ $(document).ready(function() {
  
   });
 
-  $(window).load(function() {
-      if (target) {
-          $('html, body').animate({
-              scrollTop: $("#slide" + target).offset().top
-          }, 700, 'swing', function () {});
-      }
-  });
- 
+  $('#slide').ScrollTo('#article-desc');
+
 });
+
