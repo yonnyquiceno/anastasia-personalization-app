@@ -15,9 +15,11 @@
  *= require owl.carousel
  *= require owl.theme
  *= require font-awesome
+ *= require main
  */
 
-@import "main.scss";
+@import "main";
 @import "font-awesome";
 @import "font";
-@import "roundabout.scss";
+@import "roundabout";
+

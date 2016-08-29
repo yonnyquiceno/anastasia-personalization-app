@@ -1,0 +1,104 @@
+@import "main"
+
+.cart-block
+	display: block
+	border-bottom: 1px solid $color-grey
+	margin-top: 20px
+	&--table
+		margin-bottom: 0px
+	&--table > thead > tr > th 
+		border-bottom: none
+		text-align: center
+	&--table > tbody > tr > td 
+		border-top: none
+	&--img
+		display: block
+		margin: 0 auto
+		max-width: 200px
+		max-height: 200px
+
+.cartmenu 
+	float: right
+	padding: 20px 0
+	&-item 
+		display: inline-block
+		&--link
+			display: block
+			background: $color-grey-light
+			color: $color-grey
+			padding: 2px 15px
+			text-decoration: none
+			&:hover
+				color: $color-grey
+				text-decoration: none
+				opacity: 0.6
+		&--delete
+			background: none
+.recycled
+	padding: 40px 0
+	&--img
+		display: block
+		max-width: 300px
+		max-height: 300px
+		margin: 0 auto
+	&-result
+		display: block
+		width: 250px
+		height: 250px
+		padding: 20px
+		margin: 0 50px 0 0
+		background-image: image-url("fabric-bg.png")
+		background-size: cover
+		text-align: center
+		&:last-child
+			margin-right: 0px !important
+		&--num
+			margin-top: 25%
+			display: block
+			font-size: $font-size-xx-large
+		&--desc
+			display: block
+			font-size: $font-size-large
+
+.manufacture
+	padding: 40px
+	&-title
+		display: block
+		text-align: center
+		margin-bottom: 40px
+		&--img 
+			display: inline-block
+			width: 165px
+			height: 62px
+			margin: 0px 10px
+			background-size: contain
+			background-repeat: no-repeat
+			background-image: image-url("handcraft.png")
+
+	.btn-info
+		border-radius: 0px !important
+		border: 0px !important
+		color: #e7e7e7 !important
+		background-color: white !important
+		display: block
+		width: 50px
+		height: auto
+		margin: 0 auto
+		box-shadow: none
+	.arrow
+		width: 50px
+		height: 50px
+		margin: 0 auto
+		font-size: $font-size-xx-large
+		color: $color-grey-light
+		background: none
+		border-radius: none
+
+.mother
+	&-img
+		display: block
+		&--img
+			display: block
+			border-radius: 50%
+			margin: 40px auto
+
