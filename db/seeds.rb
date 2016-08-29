@@ -25,3 +25,22 @@ Article.create(article_name: 'Mignora Scarf', image1: 'scarf2', image2: 'scarf2-
 image3: 'scarf2_3', dimension: '60x60', available: true, category_id: 2, description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur, mauris sit amet interdum consectetur, ante est convallis libero, sit amet tincidunt ante quam at massa. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin vitae nisi quis.")
 Article.create(article_name: 'Scher Scarf', image1: 'scarf3', image2: 'scarf3-2',
 image3: 'scarf3_3', dimension: '60x60', available: true, category_id: 2, description:"Aenean tristique venenatis volutpat. Maecenas ultricies nulla sed metus commodo, quis tincidunt ex suscipit. Ut sed nibh ante. Sed sit amet arcu leo. Curabitur sed mi laoreet, rutrum nisi eget, lacinia sem. Aliquam laoreet pulvinar erat. Aliquam condimentum, nulla sit")
+
+Material.create(material_name: "lycra", total_weight: 80, color: "rgba(166,99,195,0.5)")
+Material.create(material_name: "lycra", total_weight: 70, color: "rgba(255,92,191,0.5)")
+Material.create(material_name: "lycra", total_weight: 60, color: "rgba(83,229,38,0.5)")
+Material.create(material_name: "lycra", total_weight: 50, color: "rgba(178,240,225,0.5)")
+Material.create(material_name: "lycra", total_weight: 40, color: "rgba(250,27,0,0.5)")
+Material.create(material_name: "lycra", total_weight: 30, color: "rgba(83,229,12,0.5)")
+
+Part.create(part_name: "ext_1", weight: 0.2)
+Part.create(part_name: "ext_2", weight: 0.2)
+Part.create(part_name: "ext_3", weight: 0.2)
+Part.create(part_name: "ext_4", weight: 0.2)
+Part.create(part_name: "ext_5", weight: 0.2)
+
+MaterialPart.create(material_id:1, part_id:1)
+MaterialPart.create(material_id:2, part_id:2)
+MaterialPart.create(material_id:3, part_id:3)
+MaterialPart.create(material_id:4, part_id:4)
+MaterialPart.create(material_id:5, part_id:5)

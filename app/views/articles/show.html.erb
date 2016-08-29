@@ -14,8 +14,9 @@
 			</div>
 		</div>
 </div>
-<div class="articles-desc col-lg-12 col-md-10 col-s-12">
-	<%= link_to 'Next <i class="fa fa-caret-right" aria-hidden="true"></i> '.html_safe, root_path, class: 'next-btn' %>
-</div>
 
-<%= link_to 'next' %>
+<% user = User.create %>
+<% product = Product.create(user: user) %>
+<div class="articles-desc col-lg-12 col-md-10 col-s-12">
+	<%= link_to 'Next <i class="fa fa-caret-right" aria-hidden="true"></i> '.html_safe, article_color_personalization_path(user_id: user.id, product_id:product.id), class: 'next-btn' %>
+</div>

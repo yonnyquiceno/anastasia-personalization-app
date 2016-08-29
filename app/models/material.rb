@@ -1,4 +1,4 @@
 class Material < ActiveRecord::Base
-  has_many :MaterialParts
-  has_many :parts, through: :materialparts
+  has_many :material_parts
+  has_many :parts, through: :material_parts
 end
