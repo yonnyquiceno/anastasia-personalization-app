@@ -7,7 +7,7 @@
     <div class="picker col-lg-10 col-md-10 col-s-12">
         <body onload="init()">
             <div class="canvas-position">
-                <div class="articles-desc--img col-lg-5 col-md-5 col-s-10">
+                <div class="canvas-desc--img col-lg-5 col-md-5 col-s-10">
                    <% @var = @vector + '.jpg' %>
                    <%= image_tag(@var,  size: "0x0", id:@vector)%>
                     <center>
@@ -5621,8 +5621,8 @@
                         //////////////////////////////////////////////////////////////////////
                     </script>
                 </div>
-                <div>
-                    <p id="buy">Comprar</p>
+                <div class="col-lg-12 col-md-12 col-small-12">
+                    <p id="buy"><span>Comprar <i class="fa fa-caret-right" aria-hidden="true"></i></span></p>
                     <script>
 
                         document.getElementById("buy").addEventListener("click", function () {
