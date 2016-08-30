@@ -8,8 +8,8 @@
         <body onload="init()">
             <div class="canvas-position">
                 <div class="articles-desc--img col-lg-5 col-md-5 col-s-10">
-                    <%= image_tag("scarf.JPG",  size: "0x0", id:"scarf-002")%>
-                    <%= image_tag("bag1.jpg",  size: "0x0", id:"bag1")%>
+                   <% @var = @vector + '.jpg' %>
+                   <%= image_tag(@var,  size: "0x0", id:@vector)%>
                     <center>
                         <div>
                             <canvas id="vectorsCanvas" width="600" height="300" style="position: absolute; left: 200; top:400; z-index: 1"></canvas>
@@ -5642,32 +5642,29 @@
                             //request.onload = callback;
                             request1.open("post", "http://localhost:3000/material_parts");
                             request1.setRequestHeader("Content-Type", "application/json");
-                            var parameters1 = '{"part_id":"1", "material_color":"'.concat(colour_2).concat('", "product_id":"').concat(product_id).concat('"}')
+                            var parameters1 = '{"part_id":"2", "material_color":"'.concat(colour_2).concat('", "product_id":"').concat(product_id).concat('"}')
                             request1.send(parameters1);
 
                             var request2 = new XMLHttpRequest();
                             //request.onload = callback;
                             request2.open("post", "http://localhost:3000/material_parts");
                             request2.setRequestHeader("Content-Type", "application/json");
-                            var parameters2 = '{"part_id":"1", "material_color":"'.concat(colour_3).concat('", "product_id":"').concat(product_id).concat('"}')
+                            var parameters2 = '{"part_id":"3", "material_color":"'.concat(colour_3).concat('", "product_id":"').concat(product_id).concat('"}')
                             request2.send(parameters2);
 
                             var request3 = new XMLHttpRequest();
                             //request.onload = callback;
                             request3.open("post", "http://localhost:3000/material_parts");
                             request3.setRequestHeader("Content-Type", "application/json");
-                            var parameters3 = '{"part_id":"1", "material_color":"'.concat(colour_4).concat('", "product_id":"').concat(product_id).concat('"}')
+                            var parameters3 = '{"part_id":"4", "material_color":"'.concat(colour_4).concat('", "product_id":"').concat(product_id).concat('"}')
                             request3.send(parameters3);
 
                             var request4 = new XMLHttpRequest();
                             //request.onload = callback;
                             request4.open("post", "http://localhost:3000/material_parts");
                             request4.setRequestHeader("Content-Type", "application/json");
-                            var parameters4 = '{"part_id":"1", "material_color":"'.concat(colour_5).concat('", "product_id":"').concat(product_id).concat('"}')
+                            var parameters4 = '{"part_id":"5", "material_color":"'.concat(colour_5).concat('", "product_id":"').concat(product_id).concat('"}')
                             request4.send(parameters4);
-
-                            var request5 = new XMLHttpRequest();
-                            //request.onload = callback;
 
                             window.location.replace("http://localhost:3000/users/".concat(user_id).concat("/products"));
 
@@ -5676,5 +5673,5 @@
                 </div>
             </div>
         </body>
-    </div>  
+    </div>
 </div>

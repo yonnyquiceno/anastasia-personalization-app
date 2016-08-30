@@ -16,7 +16,7 @@
 </div>
 
 <% user = User.create %>
-<% product = Product.create(user: user) %>
+<% product = Product.create(user: user, category_id: params[:category_id], article_id: params[:article_id]) %>
 <div class="articles-desc col-lg-12 col-md-10 col-s-12">
 	<%= link_to 'Next <i class="fa fa-caret-right" aria-hidden="true"></i> '.html_safe, article_color_personalization_path(user_id: user.id, product_id:product.id), class: 'next-btn' %>
 </div>

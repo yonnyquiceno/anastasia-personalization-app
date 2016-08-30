@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   def index
       #@products = Product.all if current_user.present? && current_user.is_admin
       @products = @user.products
+      redirect_to products_cart_resume_path
   end
 
   def show
