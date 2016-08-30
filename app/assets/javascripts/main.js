@@ -16,7 +16,9 @@ $(document).ready(function() {
  
   });
 
-  $('#slide').ScrollTo('#article-desc');
+  $('#slide').submit(function(event) {
+    event.preventDefault();
+  });
 
 });
 
