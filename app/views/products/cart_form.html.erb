@@ -1,0 +1,77 @@
+<h3 class= "title">Confirm Purchase</h3>
+	<h3 class="subtitle">This is your creation   <i class="fa fa-heart" aria-hidden="true"></i></h3>
+	<div class="cart-form col-lg-12 col-md-12 col-s-12">
+		<table class="table cart-form--table">
+		  <thead>
+		    <tr>
+		      <th>PRODUCT</th>
+		      <th>COLORS</th>
+		      <th>FABRIC INTERIOR</th>
+		      <th>FABRIC EXTERIOR</th>
+		      <th>PRICE</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		      <tr>
+		        <td><%= image_tag("bag-demo.jpg", :class => "cart-form--img")%></td>
+		        <td>
+		        <center><span class="color-box box-one"></span>
+		        <span class="color-box box-two"></span>
+		        <span class="color-box box-three"></span>
+		        <span class="color-box box-four"></span>
+		        <span class="color-box box-five"></span></center></td>
+		        <td><center>-</center></td>
+		        <td><center>-</center></td>
+		        <td><div class="price"><center>$200</center></div></td>
+		      </tr>
+		  </tbody>
+		</table>
+	</div>
+<div class="cart-form col-lg-12 col-md-12 col-small-12">
+	<h3 class="subtitle">Let's buy   <i class="fa fa-shopping-cart" aria-hidden="true"></i></h3>
+</div>
+<div class="cart-form col-lg-12 col-md-12 col-small-12">
+	<h3 class="subtitle">Tell us about you to send your product   <i class="fa fa-shopping-cart" aria-hidden="true"></i></h3>
+	<form class="form-horizontal" id="form-purchase" action="">
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">Your mame</label>
+			<div class="col-sm-9">
+			  <input type="text" class="form-control" id="username" onblur="validate()">
+		</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">Your Last Name</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">E-mail</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">Address</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+		<div class="cart-form--btn">
+			<center>
+			  <button type="submit" id="login" class="btn btn-success">Buy</button>
+			  <button class="btn btn-danger" type="reset">Cancel</button>
+			</center>
+		</div>
+		<div class="row">
+			<div class="pull-right col-sm-12 col-md-8 col-lg-8">
+				<p id="error"></p>
+			</div>
+		</div>
+		<div class="row">
+		</div>
+	</form>
+</div>
+</div>
+	
+</div>
