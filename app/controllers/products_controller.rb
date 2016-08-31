@@ -5,9 +5,12 @@ class ProductsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-      #@products = Product.all if current_user.present? && current_user.is_admin
-      @products = @user.products
-      redirect_to products_cart_resume_path
+    # @products = Product.all if current_user.present? && current_user.is_admin
+    @products = @user.products
+    gon.product_colors = Array.new
+    @products.each do |product|
+    gon.product_colors << product.material_parts.map(&:material).map(&:color)
+    end
   end
 
   def show
@@ -29,20 +32,19 @@ class ProductsController < ApplicationController
   # end
 
   def create
-      @product = Product.new(product_params)
-      @product.save
-      render :nothing => true
+    @product = Product.new(product_params)
+    @product.save
+    render nothing: true
   end
-
 
   def edit
   end
 
   def update
     if @product.update(product_params)
-        redirect_to products_path
+      redirect_to products_path
     else
-      render "Edit"
+      render 'Edit'
     end
   end
 
