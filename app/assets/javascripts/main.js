@@ -16,9 +16,5 @@ $(document).ready(function() {
  
   });
 
-  $('#slide').submit(function(event) {
-    event.preventDefault();
-  });
-
 });
 

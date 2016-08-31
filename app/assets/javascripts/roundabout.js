@@ -60,7 +60,8 @@
     childSelector:"li",
     autoplay:false,
     autoplayDuration:500000,
-    autoplayPauseOnHover:true
+    autoplayPauseOnHover:true,
+    items: 4
   });
 
 }(jQuery));
