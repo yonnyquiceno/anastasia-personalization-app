@@ -15,8 +15,7 @@ Rails.application.routes.draw do
     resources :manufacturer
   end
 
-  resources :users, only:[] do
-    resources :products, only:[:index]
-  end
+  get '/users/:user_id/products', to: 'products#user_products_index', as: 'user_products'
+
 
 end

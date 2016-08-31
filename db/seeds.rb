@@ -1,6 +1,6 @@
 Category.create(category_name: "bags", image: 'bag1')
-Category.create(category_name: "carpets", image: 'carpet1')
 Category.create(category_name: "scarfs", image: 'scarf1')
+Category.create(category_name: "carpets", image: 'carpet1')
 
 Article.create(article_name: 'Caroline Stardust', image1: 'bag1', image2: 'bag1-2',
 image3: 'bag1_3', dimension: '25x40', available: true, category_id: 1, description: "Suspendisse non elementum nunc, Suspendisse malesuada varius sapien, at faucibus arcu consectetur vel. Fusce, a urna mattis, commodo velit a, posuere elit.,  Pellentesque porta tellus pharetra ornare,  dignissim. Aenean gravida ligula felis.")

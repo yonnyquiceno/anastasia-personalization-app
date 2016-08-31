@@ -1,0 +1,124 @@
+<h2 class="title">Checking if we got it right!</h2>
+<h3 class= "subtitle">This is what you chose:</h3>
+
+<div class="cart-block col-lg-12 col-md-12 col-s-12">
+	<table class="table cart-block--table">
+	  <thead>
+	    <tr>
+	      <th>PRODUCT</th>
+	      <th>COLORS</th>
+	      <th>FABRIC INTERIOR</th>
+	      <th>FABRIC EXTERIOR</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+				<%@products.each do |p|%>
+	      <tr>
+	        <td><%= image_tag(p.article.image1, :class => "cart-block--img")%></td>
+	        <td>
+	        <center>
+
+					<span id="box-one" class="color-box")></span>
+				  <span id="box-two" class="color-box"></span>
+	        <span id="box-three" class="color-box"></span>
+	        <span id="box-four" class="color-box"></span>
+	        <span id="box-five" class="color-box"></span>
+					<script>
+					var product_colors = gon.product_colors
+					document.getElementById("box-one").style.backgroundColor = product_colors[0][0];
+					document.getElementById("box-two").style.backgroundColor = product_colors[0][1];
+					document.getElementById("box-three").style.backgroundColor = product_colors[0][2];
+					document.getElementById("box-four").style.backgroundColor = product_colors[0][3];
+					document.getElementById("box-five").style.backgroundColor = product_colors[0][4];
+					if (typeof product_colors[0][0] === 'undefined' || product_colors[0][0] === null) {
+               alert(' Pagina en construcción, si desea observar esta funcionalidad  remitase al primer producto de la categoría bags')
+			  	} 
+					</script>
+					</center></td>
+	        <td><center>-</center></td>
+	        <td><center>-</center></td>
+	      </tr>
+				<%end%>
+	  </tbody>
+	</table>
+	<div class="col-lg-12 col-md-12 col-s-12">
+		<div class="cartmenu">
+		  <div class="cartmenu-item"><a href="#" class="cartmenu-item--link">Quantity: select</a></div>
+		  <div class="cartmenu-item">
+		  	<%= link_to '<i class="fa fa-times" aria-hidden="true"></i> Eliminate'.html_safe, root_path, class: 'cartmenu-item--link cartmenu-item--delete' %>
+		  </div>
+		  <div class="cartmenu-item">
+		  	<%= link_to '<i class="fa fa-caret-left" aria-hidden="true"></i> Go back and edit'.html_safe, root_path, class: 'cartmenu-item--link cartmenu-item--edit' %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="cart-block recycled col-lg-12 col-md-12 col-s-12">
+	<div class="col-lg-5 col-md-5 col-s-12"><%= image_tag("recycled-text.png", :class => "recycled--img")%></div>
+	<div class="col-lg-7 col-md-7 col-s-12">
+		<div class="recycled-result col-lg-3 col-md-3 col-s-12">
+			<span class="recycled-result--num">
+				7.5
+			</span>
+			<span class="recycled-result--desc">
+				Kilos
+			</span>
+		</div>
+		<div class="recycled-result col-lg-3 col-md-3 col-s-12">
+			<span class="recycled-result--num">
+				16.5
+			</span>
+			<span class="recycled-result--desc">
+				Pounds
+			</span>
+		</div>
+	</div>
+</div>
+
+<div class="cart-block manufacture col-lg-12 col-md-12 col-s-12">
+	<h2 class="manufacture-title">Chose WHO will <span class="manufacture-title--img"></span> your piece</h2>
+	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
+	<span class="arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+	</button>
+	 <div id="demo" class="collapse col-lg-12 col-md-12 col-s-12">
+	 	<div class="mother col-lg-4 col-md-4 col-s-12">
+	 		<div class="mother-img"><%= image_tag("madres/mom1.jpg", :class => "mother-img--img")%></div>
+	 		<div class="mother-desc">
+	 			<h2>Eliana Vélez</h2>
+	 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam nisi viverra ligula sodales gravida. Aenean et mattis neque, eget interdum turpis. Etiam tristique augue dolor, non interdum lacus sollicitudin condimentum. Aliquam consequat lobortis sapien in semper. Sed nec rutrum quam. Fusce non mi est. In tincidunt nisl eu nisi blandit, faucibus iaculis felis semper. Nunc aliquet orci id risus suscipit accumsan. Aenean vehicula, dolor ac hendrerit sollicitudin, orci orci commodo dui, et volutpat arcu leo at lacus.
+	 			<%= link_to 'Select'.html_safe, root_path, class: 'mother-link' %>
+
+	 		</div>
+	 	</div>
+	 	<div class="mother col-lg-4 col-md-4 col-s-12">
+	 		<div class="mother-img"><%= image_tag("madres/mom2.jpg", :class => "mother-img--img")%></div>
+	 		<div class="mother-desc">
+	 			<h2>Angela Castillo</h2>
+	 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam nisi viverra ligula sodales gravida. Aenean et mattis neque, eget interdum turpis. Etiam tristique augue dolor, non interdum lacus sollicitudin condimentum. Aliquam consequat lobortis sapien in semper. Sed nec rutrum quam. Fusce non mi est. In tincidunt nisl eu nisi blandit, faucibus iaculis felis semper. Nunc aliquet orci id risus suscipit accumsan. Aenean vehicula, dolor ac hendrerit sollicitudin, orci orci commodo dui, et volutpat arcu leo at lacus.
+	 			<%= link_to 'Select'.html_safe, root_path, class: 'mother-link' %>
+	 		</div>
+	 	</div>
+	 	<div class="mother col-lg-4 col-md-4 col-s-12">
+	 		<div class="mother-img"><%= image_tag("madres/mom3.jpg", :class => "mother-img--img")%></div>
+	 		<div class="mother-desc">
+	 			<h2>Viviana Ocampo</h2>
+	 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam nisi viverra ligula sodales gravida. Aenean et mattis neque, eget interdum turpis. Etiam tristique augue dolor, non interdum lacus sollicitudin condimentum. Aliquam consequat lobortis sapien in semper. Sed nec rutrum quam. Fusce non mi est. In tincidunt nisl eu nisi blandit, faucibus iaculis felis semper. Nunc aliquet orci id risus suscipit accumsan. Aenean vehicula, dolor ac hendrerit sollicitudin, orci orci commodo dui, et volutpat arcu leo at lacus.
+	 			<%= link_to 'Select'.html_safe, root_path, class: 'mother-link' %>
+	 		</div>
+	 	</div>
+
+	  </div>
+</div>
+<div class="quote col-lg-12 col-md-12 col-small-12">
+	<p>Choose for <span class="quote-img"></span> <i class="fa fa-heart" aria-hidden="true"></i> </p>
+</div>
+<div class="col-lg-12 col-md-12 col-s-12">
+	<div class="btn-nav">
+		<%= link_to '<i class="fa fa-caret-left" aria-hidden="true"></i> Continue Shopping '.html_safe, root_path, class: 'btn-nav--left' %>
+		<%= link_to 'Go to Check Out <i class="fa fa-caret-right" aria-hidden="true"></i> '.html_safe, root_path, class: 'btn-nav--right' %>
+	</div>
+</div>
+</div>
+
+</div>
