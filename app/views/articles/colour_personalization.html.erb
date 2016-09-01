@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="articles-slider col-lg-12 col-md-12 col-s-12" id="article-desc">
-        <%= render partial: "articles_slider", locals: {items: @items}%>
+      <div class="articles-slider col-lg-12 col-md-12 col-s-12" id="article-desc">
+              <%= render partial: "articles_slider", locals: {items: @items}%>
         <%parts_count = 3 %>
         <%colours = %>
     </div>
@@ -18,6 +18,11 @@
                         </div>
                     </center>
                     <script>
+                        <% if Rails.env == "production" %>
+                          var base_url = "https://anastasia-personalization.herokuapp.com"
+                        <%else%>
+                          var base_url = "http://localhost:3000"
+                        <%end%>
                         var canvas = document.getElementById('vectorsCanvas');
                         var context = canvas.getContext('2d');
                         var img = document.getElementById("scarf");
@@ -5638,40 +5643,40 @@
 
                             var request = new XMLHttpRequest();
                             //request.onload = callback;
-                            request.open("post", "https://anastasia-personalization.herokuapp.com/material_parts");
+                            request.open("post", base_url.toString().concat("/material_parts"));
                             request.setRequestHeader("Content-Type", "application/json");
                             var parameters = '{"part_id":"1", "material_color":"'.concat(colour_1).concat('", "product_id":"').concat(product_id).concat('"}')
                             request.send(parameters);
 
                             var request1 = new XMLHttpRequest();
                             //request.onload = callback;
-                            request1.open("post", "https://anastasia-personalization.herokuapp.com/material_parts");
+                            request1.open("post", base_url.toString().concat("/material_parts"));
                             request1.setRequestHeader("Content-Type", "application/json");
                             var parameters1 = '{"part_id":"2", "material_color":"'.concat(colour_2).concat('", "product_id":"').concat(product_id).concat('"}')
                             request1.send(parameters1);
 
                             var request2 = new XMLHttpRequest();
                             //request.onload = callback;
-                            request2.open("post", "https://anastasia-personalization.herokuapp.com/material_parts");
+                            request2.open("post", base_url.toString().concat("/material_parts"));
                             request2.setRequestHeader("Content-Type", "application/json");
                             var parameters2 = '{"part_id":"3", "material_color":"'.concat(colour_3).concat('", "product_id":"').concat(product_id).concat('"}')
                             request2.send(parameters2);
 
                             var request3 = new XMLHttpRequest();
                             //request.onload = callback;
-                            request3.open("post", "https://anastasia-personalization.herokuapp.com/material_parts");
+                            request3.open("post", base_url.toString().concat("/material_parts"));
                             request3.setRequestHeader("Content-Type", "application/json");
                             var parameters3 = '{"part_id":"4", "material_color":"'.concat(colour_4).concat('", "product_id":"').concat(product_id).concat('"}')
                             request3.send(parameters3);
 
                             var request4 = new XMLHttpRequest();
                             //request.onload = callback;
-                            request4.open("post", "https://anastasia-personalization.herokuapp.com/material_parts");
+                            request4.open("post", base_url.toString().concat("/material_parts"));
                             request4.setRequestHeader("Content-Type", "application/json");
                             var parameters4 = '{"part_id":"5", "material_color":"'.concat(colour_5).concat('", "product_id":"').concat(product_id).concat('"}')
                             request4.send(parameters4);
 
-                            window.location.replace("https://anastasia-personalization.herokuapp.com/users/".concat(user_id).concat("/products"));
+                            window.location.replace(base_url.toString().concat("/users/").concat(user_id).concat("/products"));
 
                         }, false);
                     </script>
