@@ -14,7 +14,7 @@
 		<tbody>
 			<%@products.each do |prod|%>
 			<tr>
-				<td><%= image_tag(prod.article.image1, :class => "cart-block--img")%></td>
+				<td><%= image_tag(asset_path(prod.article.image1.to_s + ".jpg"), :class => "cart-block--img")%></td>
 				<td>
 					<center>
 
