@@ -1,9 +1,9 @@
   <div id="carousel-wrap">
     <ul id="carousel" class="top_slider roundabout-holder" style="margin-top: 200px;">
-    <% items.each do |item| %>
+    <% @items.each do |item| %>
       <li>
         <span class="project-wrap"><span class="view-project-button">View Project</span></span>
-          <%=link_to image_tag( item.image1, class: "slide", id: "slide"), article_description_path(params[:category_id], item.id) %>
+          <%=link_to image_tag( item.image1.to_s , class: "slide", id: "slide"), article_description_path(params[:category_id], item.id) %>
       </li>
       <%end%>
     </ul>
