@@ -1,0 +1,107 @@
+<h3 class="title">Confirm Purchase</h3>
+<h3 class="subtitle">This is your creation
+	<i class="fa fa-heart" aria-hidden="true"></i>
+</h3>
+<div class="cart-form col-lg-12 col-md-12 col-s-12">
+	<table class="table cart-form--table">
+		<thead>
+			<tr>
+				<th>PRODUCT</th>
+				<th>COLORS</th>
+				<th>FABRIC INTERIOR</th>
+				<th>FABRIC EXTERIOR</th>
+				<th>PRICE</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%@products.each do |prod|%>
+			<tr>
+				<td><%= image_tag(prod.article.image1, :class => "cart-block--img")%></td>
+				<td>
+					<center>
+						<span id="box-one" class="color-box" )></span>
+						<span id="box-two" class="color-box"></span>
+						<span id="box-three" class="color-box"></span>
+						<span id="box-four" class="color-box"></span>
+						<span id="box-five" class="color-box"></span>
+						<script>
+							var product_colors = gon.product_colors
+							document.getElementById("box-one").style.backgroundColor = product_colors[0][0];
+							document.getElementById("box-two").style.backgroundColor = product_colors[0][1];
+							document.getElementById("box-three").style.backgroundColor = product_colors[0][2];
+							document.getElementById("box-four").style.backgroundColor = product_colors[0][3];
+							document.getElementById("box-five").style.backgroundColor = product_colors[0][4];
+							if (typeof product_colors[0][0] === 'undefined' || product_colors[0][0] === null) {
+								alert(' Pagina en construcción, si desea observar esta funcionalidad  remitase al primer producto de la categoría bags')
+							}
+						</script>
+
+					</center>
+				</td>
+				<td>
+					<center><%=prod.material_parts.first.material.material_name%></center>
+				</td>
+				<td>
+					<center><%=prod.material_parts.first(2).last.material.material_name%></center>
+				</td>
+				<td>
+					<div class="price">
+						<center>$200</center>
+					</div>
+				</td>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>
+<div class="cart-form col-lg-12 col-md-12 col-small-12">
+	<h3 class="subtitle">Let's buy
+		<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+	</h3>
+</div>
+<div class="cart-form col-lg-12 col-md-12 col-small-12">
+	<h3 class="subtitle">Tell us about you to send your product
+		<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+	</h3>
+	<form class="form-horizontal" id="form-purchase" action="">
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">Your mame</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" id="username" onblur="validate()">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">Your Last Name</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">E-mail</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="Username">Address</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+		<div class="cart-form--btn">
+			<center>
+				<button type="submit" id="login" class="btn btn-success">Buy</button>
+				<button class="btn btn-danger" type="reset">Cancel</button>
+			</center>
+		</div>
+		<div class="row">
+			<div class="pull-right col-sm-12 col-md-8 col-lg-8">
+				<p id="error"></p>
+			</div>
+		</div>
+		<div class="row"></div>
+	</form>
+</div>
+</div>
+
+</div>

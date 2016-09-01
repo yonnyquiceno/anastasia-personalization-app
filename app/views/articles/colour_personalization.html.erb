@@ -95,8 +95,13 @@
 
                                     <% case @vector%>
                                     <% when "scarf1"%>
-                                    draw_scarf_1(context, element.colour)<% when "bag1"%>
-                                    draw_bag_1(context, element.colour, selector_pressed)<%end%>
+                                    draw_scarf_1(context, element.colour)
+                                    <% when "bag1"%>
+                                    draw_bag_1(context, element.colour, selector_pressed)
+                                    <% else %>
+                                    if(confirm("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags: \"Caroline Stardust\". \n  Desea ser redirigido?")) document.location = 'http://localhost:3000/categories/1/articles/1';
+                                    //alert ("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags \"Caroline Stardust\"")
+                                    <%end%>
                                     //context.fillStyle = element.colour}
                                     context3.clearRect(selectors[selector_pressed].left, selectors[selector_pressed].top, 40, 40); //borrar el area para que los colores no se superpongan
                                     Draw_vector_selectors(selectors[selector_pressed], element.colour)
@@ -118,32 +123,32 @@
                         }, false);
 
                         colours_vector = [
-                            'rgba(166,99,195,'.concat(oppacity).concat(")"),
-                            'rgba(255,92,191,'.concat(oppacity).concat(")"),
-                            'rgba(83,229,38,'.concat(oppacity).concat(")"),
-                            'rgba(178,240,225,'.concat(oppacity).concat(")"),
-                            'rgba(250,27,0,'.concat(oppacity).concat(")"),
-                            'rgba(178,240,125,'.concat(oppacity).concat(")"),
-                            'rgba(36,9,195,'.concat(oppacity).concat(")"),
-                            'rgba(255,55,191,'.concat(oppacity).concat(")"),
-                            'rgba(83,229,12,'.concat(oppacity).concat(")"),
-                            'rgba(166,99,195,'.concat(oppacity).concat(")"),
-                            'rgba(255,92,191,'.concat(oppacity).concat(")"),
-                            'rgba(83,229,38,'.concat(oppacity).concat(")"),
-                            'rgba(166,12,195,'.concat(oppacity).concat(")"),
-                            'rgba(5,92,191,'.concat(oppacity).concat(")"),
-                            'rgba(83,229,38,'.concat(oppacity).concat(")"),
-                            'rgba(178,240,225,'.concat(oppacity).concat(")"),
-                            'rgba(20,27,0,'.concat(oppacity).concat(")"),
-                            'rgba(178,240,125,'.concat(oppacity).concat(")"),
-                            'rgba(166,0,195,'.concat(oppacity).concat(")"),
-                            'rgba(55,92,191,'.concat(oppacity).concat(")"),
-                            'rgba(83,229,38,'.concat(oppacity).concat(")"),
-                            'rgba(166,99,195,'.concat(oppacity).concat(")"),
-                            'rgba(12,92,191,'.concat(oppacity).concat(")"),
-                            'rgba(83,229,38,'.concat(oppacity).concat(")")
+                          'rgba(255, 51, 255, '.concat(oppacity).concat(")"),
+                          'rgba(255, 0, 102, '.concat(oppacity).concat(")"),
+                          'rgba(153, 0, 51, '.concat(oppacity).concat(")"),
+                          'rgba(255, 0, 255, '.concat(oppacity).concat(")"),
+                          'rgba(255, 80, 80, '.concat(oppacity).concat(")"),
+                          'rgba(204, 0, 0, '.concat(oppacity).concat(")"),
+                          'rgba(51, 204, 51, '.concat(oppacity).concat(")"),
+                          'rgba(102, 255, 51, '.concat(oppacity).concat(")"),
+                          'rgba(102, 153, 0, '.concat(oppacity).concat(")"),
+                          'rgba(153, 255, 51, '.concat(oppacity).concat(")"),
+                          'rgba(51, 102, 0, '.concat(oppacity).concat(")"),
+                          'rgba(204, 255, 51, '.concat(oppacity).concat(")"),
+                          'rgba(51, 153, 255, '.concat(oppacity).concat(")"),
+                          'rgba(51, 204, 255, '.concat(oppacity).concat(")"),
+                          'rgba(0, 102, 255, '.concat(oppacity).concat(")"),
+                          'rgba(51, 51, 255, '.concat(oppacity).concat(")"),
+                          'rgba(0, 0, 153, '.concat(oppacity).concat(")"),
+                          'rgba(102, 255, 255, '.concat(oppacity).concat(")"),
+                          'rgba(153, 102, 51, '.concat(oppacity).concat(")"),
+                          'rgba(102, 51, 0, '.concat(oppacity).concat(")"),
+                          'rgba(153, 153, 102, '.concat(oppacity).concat(")"),
+                          'rgba(255, 153, 0, '.concat(oppacity).concat(")"),
+                          'rgba(204, 102, 0, '.concat(oppacity).concat(")"),
+                          'rgba(204, 51, 0, '.concat(oppacity).concat(")")
                         ];
-                    
+
                         function build_color_samples(elements, colours_vector) {
                             var lgap = 40;
                             var tgap = 40;

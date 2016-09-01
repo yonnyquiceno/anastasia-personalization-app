@@ -1,12 +1,20 @@
 #:nodoc:
 class ProductsController < ApplicationController
   before_action :find_product, only: [:edit, :update, :destroy]
-  before_action :set_user, only: [:user_products_index]
+  before_action :set_user, only: [:user_products_index, :user_data_registry]
   skip_before_action :verify_authenticity_token
 
   def user_products_index
     # @products = Product.all if current_user.present? && current_user.is_admin
-    @products = @user.products
+    @products = @user.products.includes(:material_parts)
+    gon.product_colors = Array.new
+    @products.each do |product|
+    gon.product_colors << product.material_parts.map(&:material).map(&:color)
+    end
+  end
+
+  def user_data_registry
+    @products = @user.products.includes(:material_parts)
     gon.product_colors = Array.new
     @products.each do |product|
     gon.product_colors << product.material_parts.map(&:material).map(&:color)
