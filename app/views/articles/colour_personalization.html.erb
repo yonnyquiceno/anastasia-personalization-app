@@ -18,7 +18,7 @@
                         </div>
                     </center>
                     <script>
-
+                        var environment = gon.environment
                         var canvas = document.getElementById('vectorsCanvas');
                         var context = canvas.getContext('2d');
                         var img = document.getElementById("scarf");
@@ -5628,7 +5628,7 @@
                     </script>
                 </div>
                 <div class="col-lg-12 col-md-12 col-small-12">
-                    <p id="buy"><span>Comprar <%= "#{Rails.env}" %><i class="fa fa-caret-right" aria-hidden="true"></i></span></p>
+                    <p id="buy"><span>Comprar <i class="fa fa-caret-right" aria-hidden="true"></i></span></p>
                     <script>
 
                         document.getElementById("buy").addEventListener("click", function () {
