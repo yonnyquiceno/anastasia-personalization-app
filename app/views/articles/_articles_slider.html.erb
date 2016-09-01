@@ -3,7 +3,7 @@
     <% @items.each do |item| %>
       <li>
         <span class="project-wrap"><span class="view-project-button">View Project</span></span>
-          <%=link_to image_tag( item.image1.to_s , class: "slide", id: "slide"), article_description_path(params[:category_id], item.id) %>
+          <%=link_to image_tag( asset_path(item.image1.to_s) , class: "slide", id: "slide"), article_description_path(params[:category_id], item.id) %>
       </li>
       <%end%>
     </ul>

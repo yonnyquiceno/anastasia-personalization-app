@@ -176,7 +176,7 @@ DEPENDENCIES
   owlcarousel-rails
   pg (= 0.18.4)
   rails (= 4.2.6)
-  rails_12factor (= 0.0.2)
+  rails_12factor
   responders (~> 2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
