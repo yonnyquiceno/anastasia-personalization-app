@@ -4,7 +4,7 @@
 		</div>
 		<div class="articles-desc col-lg-10 col-md-10 col-s-12" id="articles-desc">
 			<div class="articles-desc--img col-lg-5 col-md-5 col-s-10">
-				<%=image_tag( @item.image1, size:"300x300")%>
+				<%=image_tag( asset_path(@item.image1.to_s + ".jpg"), size:"300x300")%>
 			</div>
 			<div class="articles-desc--text col-lg-7 col-md-7 col-s-10">
 				<h1><%= @item.article_name %></h1></br>
