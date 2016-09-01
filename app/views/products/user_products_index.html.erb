@@ -16,31 +16,28 @@
 			<tr>
 				<td><%= image_tag(prod.article.image1, :class => "cart-block--img")%></td>
 				<td>
-					<center>
-
-						<span id="box-one" class="color-box" )></span>
-						<span id="box-two" class="color-box"></span>
-						<span id="box-three" class="color-box"></span>
-						<span id="box-four" class="color-box"></span>
-						<span id="box-five" class="color-box"></span>
-						<script>
-							var product_colors = gon.product_colors
-							document.getElementById("box-one").style.backgroundColor = product_colors[0][0];
-							document.getElementById("box-two").style.backgroundColor = product_colors[0][1];
-							document.getElementById("box-three").style.backgroundColor = product_colors[0][2];
-							document.getElementById("box-four").style.backgroundColor = product_colors[0][3];
-							document.getElementById("box-five").style.backgroundColor = product_colors[0][4];
-							if (typeof product_colors[0][0] === 'undefined' || product_colors[0][0] === null) {
-								alert(' Aplicación en construcción, si desea observar el listado de colores elegidos  seleccione el primer producto de la categoría bags')
-							}
-						</script>
-					</center>
+					<span id="box-one" class="color-box" ></span>
+					<span id="box-two" class="color-box"></span>
+					<span id="box-three" class="color-box"></span>
+					<span id="box-four" class="color-box"></span>
+					<span id="box-five" class="color-box"></span>
+					<script>
+						var product_colors = gon.product_colors
+						document.getElementById("box-one").style.backgroundColor = product_colors[0][0];
+						document.getElementById("box-two").style.backgroundColor = product_colors[0][1];
+						document.getElementById("box-three").style.backgroundColor = product_colors[0][2];
+						document.getElementById("box-four").style.backgroundColor = product_colors[0][3];
+						document.getElementById("box-five").style.backgroundColor = product_colors[0][4];
+						if (typeof product_colors[0][0] === 'undefined' || product_colors[0][0] === null) {
+							alert(' Aplicación en construcción, si desea observar el listado de colores elegidos  seleccione el primer producto de la categoría bags')
+						}
+					</script>
 				</td>
 				<td>
-					<center><%=prod.material_parts.first.material.material_name if prod.material_parts.first.present?%></center>
+					<%=prod.material_parts.first.material.material_name if prod.material_parts.first.present?%>
 				</td>
 				<td>
-					<center><%=prod.material_parts.first(2).last.material.material_name if prod.material_parts.first.present?%></center>
+					<%=prod.material_parts.first(2).last.material.material_name if prod.material_parts.first.present?%>
 				</td>
 			</tr>
 			<%end%>
