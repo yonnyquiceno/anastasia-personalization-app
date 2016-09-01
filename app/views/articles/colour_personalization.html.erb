@@ -99,7 +99,7 @@
                                     <% when "bag1"%>
                                     draw_bag_1(context, element.colour, selector_pressed)
                                     <% else %>
-                                    if(confirm("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags: \"Caroline Stardust\". \n  Desea ser redirigido?")) document.location = 'http://localhost:3000/categories/1/articles/1';
+                                    if(confirm("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags: \"Caroline Stardust\". \n  Desea ser redirigido?")) document.location = 'https://anastasia-personalization.herokuapp.com/categories/1/articles/1';
                                     //alert ("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags \"Caroline Stardust\"")
                                     <%end%>
                                     //context.fillStyle = element.colour}
@@ -5672,7 +5672,7 @@
                             var parameters4 = '{"part_id":"5", "material_color":"'.concat(colour_5).concat('", "product_id":"').concat(product_id).concat('"}')
                             request4.send(parameters4);
 
-                            window.location.replace("http://localhost:3000/users/".concat(user_id).concat("/products"));
+                            window.location.replace("https://anastasia-personalization.herokuapp.com/users/".concat(user_id).concat("/products"));
 
                         }, false);
                     </script>
