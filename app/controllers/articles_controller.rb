@@ -1,7 +1,8 @@
 #:nodoc:
 class ArticlesController < ApplicationController
   before_action :set_items
-  
+  before_action :set_item, only: [:colour_personalization]
+
   def articles_index
   end
 
@@ -12,6 +13,10 @@ class ArticlesController < ApplicationController
 
   def show
     @item = @items.find(params[:article_id])
+  end
+
+  def colour_personalization
+    @vector = @item.image1
   end
 
   def new
@@ -33,6 +38,9 @@ class ArticlesController < ApplicationController
 
   def set_items
     @items = Article.where(category_id: params[:category_id])
+  end
+  def set_item
+    @item = Article.find(params[:article_id])
   end
 
   def article_params

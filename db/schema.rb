@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817201735) do
+ActiveRecord::Schema.define(version: 20160829041127) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -50,16 +50,19 @@ ActiveRecord::Schema.define(version: 20160817201735) do
     t.integer  "part_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "product_id"
   end
 
   add_index "material_parts", ["material_id"], name: "index_material_parts_on_material_id"
   add_index "material_parts", ["part_id"], name: "index_material_parts_on_part_id"
+  add_index "material_parts", ["product_id"], name: "index_material_parts_on_product_id"
 
   create_table "materials", force: :cascade do |t|
     t.string   "material_name"
     t.float    "total_weight"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "color"
   end
 
   create_table "parts", force: :cascade do |t|
@@ -81,11 +84,13 @@ ActiveRecord::Schema.define(version: 20160817201735) do
     t.datetime "updated_at",      null: false
     t.integer  "category_id"
     t.integer  "article_id"
+    t.integer  "user_id"
   end
 
   add_index "products", ["article_id"], name: "index_products_on_article_id"
   add_index "products", ["category_id"], name: "index_products_on_category_id"
   add_index "products", ["manufacturer_id"], name: "index_products_on_manufacturer_id"
+  add_index "products", ["user_id"], name: "index_products_on_user_id"
 
   create_table "references", force: :cascade do |t|
     t.string   "reference_name"
@@ -94,6 +99,15 @@ ActiveRecord::Schema.define(version: 20160817201735) do
     t.string   "dimension"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "address"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

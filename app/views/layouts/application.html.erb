@@ -2,13 +2,15 @@
 <html lang="en-US">
   <head>
     <title>Anastasia-v3</title>
+    <%= include_gon %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= render partial: "layouts/product_menu", locals: { devise_login: true } %>
+    <% #Menu Product navigation, evetually it will be show only on Admin view %>
     <%= render partial: "layouts/header" %>
-    <%= render partial: "layouts/product_menu" %>
     <div class="container">
       <%= render partial: "layouts/flash_messages", flash: flash %>
       <%= yield %>

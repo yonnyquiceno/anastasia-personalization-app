@@ -10,14 +10,25 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require owl.carousel
  *= require owl.theme
  *= require font-awesome
+ *= require main
  */
 
-@import "main.scss";
-@import "font-awesome";
-@import "font";
-@import "roundabout.scss";
+
+@import "font-awesome"
+@import "font"
+@import 'https://fonts.googleapis.com/css?family=Cedarville+Cursive'
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700'
+@import "main.css.sass"
+@import "base.css.sass"
+@import "partials/body.css.sass"
+@import "partials/cart-form.css.sass"
+@import "partials/cart-resume.css.sass"
+@import "partials/picker.css.sass"
+@import "roundabout.css.sass"
+@import "bootstrap-sprockets"
+@import "bootstrap"
+@import "bootstrap/theme"

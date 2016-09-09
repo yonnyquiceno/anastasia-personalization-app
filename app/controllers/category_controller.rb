@@ -12,7 +12,6 @@ class CategoryController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      # VehicleMailer.new_vehicle_mailer(current_user, @vehicle).deliver_now
       flash[:success] = 'Category registered successfully.'
       redirect_to category_index_path
     else

@@ -1,17 +1,22 @@
 <div class="container">
-	<div class="col-lg-12 col-md-12 col-s-12">
-		<%= render partial: "articles_slider", locals: {items: @items}%>
-	</div>
-	<div class="col-lg-6 col-md-6 col-s-12">
-		<%=image_tag( @item.image1, size:"300x300")%>
-
-	</div>
-
-	<div class="col-lg-6 col-md-6 col-s-12">
-		<h1><%= @item.article_name %></h1></br>
-		<h3><%= @item.dimension %></h3></br>
-		<%= @item.description %></br>
-		<%= @item.dimension %></br>
-	</div>
+		<div class="articles-slider col-lg-12 col-md-12 col-s-12" id="article-desc">
+			<%= render partial: "articles_slider", locals: {items: @items}%>
+		</div>
+		<div class="articles-desc col-lg-10 col-md-10 col-s-12" id="articles-desc">
+			<div class="articles-desc--img col-lg-5 col-md-5 col-s-10">
+				<%=image_tag( asset_path(@item.image1.to_s + ".jpg"), size:"300x300")%>
+			</div>
+			<div class="articles-desc--text col-lg-7 col-md-7 col-s-10">
+				<h1><%= @item.article_name %></h1></br>
+				<h3><%= @item.dimension %></h3></br>
+				<%= @item.description %></br>
+				<%= @item.dimension %></br>
+			</div>
+		</div>
 </div>
-<%= link_to 'next' %>
+
+<% user = User.create %>
+<% product = Product.create(user: user, category_id: params[:category_id], article_id: params[:article_id]) %>
+<div class="articles-desc col-lg-12 col-md-10 col-s-12">
+	<%= link_to 'Next <i class="fa fa-caret-right" aria-hidden="true"></i> '.html_safe, article_color_personalization_path(user_id: user.id, product_id:product.id), class: 'next-btn' %>
+</div>

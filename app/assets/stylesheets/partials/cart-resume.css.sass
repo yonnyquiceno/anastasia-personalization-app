@@ -1,0 +1,154 @@
+@import "main"
+
+.cart-block
+	display: block
+	border-bottom: 1px solid $color-grey
+	margin-top: 20px
+	&--table
+		margin-bottom: 0px
+	&--table > thead > tr > th 
+		border-bottom: none
+		text-align: center
+	&--table > tbody > tr > td 
+		border-top: none
+		max-height: 200px !important
+		line-height: 150px !important
+		text-align: center !important
+	&--img
+		display: block
+		margin: 0 auto
+		max-width: 200px
+		max-height: 200px
+.color-box
+	display: inline-block
+	margin-top: 10%
+	width: 30px
+	height: 30px
+.box-one
+	background: #d9f8f0
+.box-two
+	background: #fd8d80
+.box-three
+	background: #ff9bdf
+.box-four
+	background: #8a8d80
+.box-five
+	background: #9284e1
+
+.cartmenu 
+	float: right
+	padding: 20px 0
+	&-item 
+		display: inline-block
+		&--link
+			display: block
+			background: $color-grey-light
+			color: $color-grey
+			padding: 2px 15px
+			text-decoration: none
+			&:hover
+				color: $color-grey
+				text-decoration: none
+				opacity: 0.6
+		&--delete
+			background: none
+.recycled
+	padding: 40px 0
+	&--img
+		display: block
+		max-width: 300px
+		max-height: 300px
+		margin: 0 auto
+	&-result
+		display: block
+		width: 250px !important
+		height: 250px !important
+		padding: 20px
+		margin: 0 50px 0 0
+		background-image: image-url("fabric-bg.png")
+		background-size: cover
+		text-align: center
+		&:last-child
+			margin-right: 0px !important
+		&--num
+			display: block
+			font-size: 7.5em
+		&--desc
+			margin-top: -35px
+			display: block
+			font-size: 3em
+			color: $color-grey-medium
+
+.manufacture
+	padding: 40px
+	&-title
+		display: block
+		text-align: center
+		margin-bottom: 40px
+		&--img 
+			display: inline-block
+			width: 165px
+			height: 62px
+			margin: 0px 10px
+			background-size: contain
+			background-repeat: no-repeat
+			background-image: image-url("handcraft.png")
+
+	.btn-info
+		border-radius: 0px !important
+		border: 0px !important
+		color: #e7e7e7 !important
+		background-color: white !important
+		display: block
+		margin: 0 auto
+		box-shadow: none
+		background-image: none
+	.arrow
+		width: 50px
+		height: 50px
+		margin: 0 auto
+		font-size: $font-size-xx-large
+		color: $color-grey-light
+		background: none
+		border-radius: none
+
+.mother
+	&-img
+		display: block
+		&--img
+			display: block
+			border-radius: 50%
+			margin: 40px auto
+	&-desc > h2
+		font-family: $font-title
+		color: $color-red
+		text-align: center
+	&-link
+		display: block
+		width: 130px
+		height: 40px
+		margin: 10px auto 0
+		background: image-url('btn-bg.png')
+		background-repeat: no-repeat
+		background-size: contain
+		color: $color-grey
+		font-size: $font-size-regular
+		text-decoration: none
+		text-align: center
+		&:hover
+			color: $color-grey
+			text-decoration: none
+			opacity: 0.6
+
+.quote
+	padding: 40px 0
+	text-align: center
+	font-size: $font-size-xx-large
+	&-img
+		display: inline-block
+		width: 80px
+		height: 45px
+		margin: 0px 10px
+		background-size: contain
+		background-repeat: no-repeat
+		background-image: image-url("me.png")

@@ -1,0 +1,76 @@
+.roundabout-holder 
+  padding: 0
+  margin: 0 auto
+  height: 400px
+  width: 620px
+  margin-top: 0px !important
+
+
+.roundabout-moveable-item 
+  height: 300px
+  width: 300px
+  cursor: pointer
+  display: block
+  img 
+    height: 100%
+    width: 100%
+  
+
+
+.roundabout-in-focus 
+  cursor: auto
+
+
+#carousel 
+  li 
+    max-height: 300px
+    max-width: 300px
+    box-shadow: 0 0 2px #a5a3a3
+    text-align: center
+    cursor: pointer
+    overflow: hidden
+    background: #000
+    opacity: 1 !important
+    &.roundabout-in-focus:hover span 
+      display: block
+      z-index: 1
+    
+    img 
+      opacity: 0.95
+    
+    &.roundabout-in-focus 
+      cursor: default
+      img 
+        opacity: 1 !important
+      
+      &:hover img 
+        opacity: 0.5 !important
+      
+    
+    .project-wrap 
+      display: none
+      position: absolute
+      width: 260px
+      margin: 10% 45px
+      overflow: hidden
+    
+  .view-project-button
+    display: block !important
+    background-image: image-url('customize.png') !important
+    background-size: contain !important
+    background-repeat: no-repeat !important
+    width: 200px !important
+    height: 200px !important
+    text-indent: -99999px !important
+    font-size: 0px
+    
+  li span a 
+    &:hover.preview 
+      background: #CE4A4B
+    
+    &.details 
+      background: #A28E5C
+      border-radius: 0 5px 5px 0
+    
+    &:hover.details 
+      background: #B8A169

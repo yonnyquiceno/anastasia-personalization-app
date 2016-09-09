@@ -4,7 +4,9 @@
 
   <thead>
     <tr>
+      <th>Comprador</th>
       <th>Fabricante</th>
+      <th>Categoría</th>
       <th>Referencia</th>
       <th>Aprobado</th>
       <th>Enviado</th>
@@ -14,8 +16,10 @@
   <tbody>
     <% @products.each do |m| %>
       <tr>
+        <td><%= m.user_id %></td>
         <td><%= m.manufacturer_id %></td>
-        <td><%= m.category_id %></td>
+        <td><%= m.category.category_name%></td>
+        <td><%= m.article.article_name %></td>
         <td><%= m.approved %></td>
         <td><%= m.sended %></td>
         <td><%= m.price %></td>
