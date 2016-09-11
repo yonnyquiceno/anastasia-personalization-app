@@ -1,8 +1,7 @@
+
 <div class="container">
       <div class="articles-slider col-lg-12 col-md-12 col-s-12" id="article-desc">
               <%= render partial: "articles_slider", locals: {items: @items}%>
-        <%parts_count = 3 %>
-        <%colours = %>
     </div>
     <div class="picker col-lg-10 col-md-10 col-s-12">
         <body onload="init()">
@@ -175,11 +174,19 @@
                             var tgap = 50;
                             var loff2 = 300;
                             var toff2 = 35;
-                            <%case parts_count%>
+                            <%case @parts_count%>
+                            <%when 1 %>
+                            var parts_count = 1;
+                            <%when 2 %>
+                            var parts_count = 2;
                             <%when 3 %>
+                            var parts_count = 3;
+                            <%when 4 %>
                             var parts_count = 4;
+                            <%when 5 %>
+                            var parts_count = 5;
                             <%end%>
-                            for (i = 0; i < parts_count + 1; i++) {
+                            for (i = 0; i < parts_count; i++) {
                                 selectors.push({
                                     colour: "rgba(214, 214, 194, 0.8)",
                                     top: toff2 + tgap,

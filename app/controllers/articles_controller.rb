@@ -2,6 +2,7 @@
 class ArticlesController < ApplicationController
   before_action :set_items
   before_action :set_item, only: [:colour_personalization]
+  before_action :set_product, only: [:colour_personalization]
 
   def articles_index
   end
@@ -13,10 +14,21 @@ class ArticlesController < ApplicationController
 
   def show
     @item = @items.find(params[:article_id])
+    if user_signed_in? == false
+      random_email = rand(36**30).to_s(36)
+      @user = User.new(:email => random_email + '@non_registered_user.com', :password => 'password', :password_confirmation => 'password')
+      @user.save
+      sign_in @user
+    end
+    @product ||= Product.create(category_id: @item.category_id, article_id: @item.id)
   end
 
+
+
   def colour_personalization
+    @product.update(user: current_user)
     @vector = @item.image1
+    @parts_count = @item.parts_count
   end
 
   def new
@@ -41,6 +53,9 @@ class ArticlesController < ApplicationController
   end
   def set_item
     @item = Article.find(params[:article_id])
+  end
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 
   def article_params
