@@ -103,7 +103,7 @@
                                     <% when "bag1"%>
                                     draw_bag_1(context, element.colour, selector_pressed)
                                     <% else %>
-                                    if(confirm("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags: \"Caroline Stardust\". \n  Desea ser redirigido?")) document.location = 'https://anastasia-personalization.herokuapp.com/categories/1/articles/1';
+                                    if(confirm("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags: \"Caroline Stardust\". \n  Desea ser redirigido?")) document.location = base_url.concat('/categories/1/articles/1');
                                     //alert ("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags \"Caroline Stardust\"")
                                     <%end%>
                                     //context.fillStyle = element.colour}
