@@ -1,4 +1,4 @@
-
+<%= include_gon %>
 <div class="container">
       <div class="articles-slider col-lg-12 col-md-12 col-s-12" id="article-desc">
               <%= render partial: "articles_slider", locals: {items: @items}%>
@@ -7,8 +7,8 @@
         <body onload="init()">
             <div class="canvas-position">
                 <div class="canvas-desc--img col-lg-5 col-md-5 col-s-10">
-                   <% @var = @vector + '.jpg' %>
-                   <%= image_tag(@var,  size: "0x0", id:@vector)%>
+                   <% @var = @image1 + '.jpg' %>
+                   <%= image_tag(@var,  size: "0x0", id:@image1)%>
                     <center>
                         <div>
                             <canvas id="vectorsCanvas" width="600" height="300" style="position: absolute; left: 200; top:400; z-index: 1"></canvas>
@@ -45,13 +45,15 @@
                         var colour_4 = 'rgba(255, 255, 255, 0)';
                         var colour_5 = 'rgba(255, 255, 255, 0)';
 
+                        var advised = false;
+
                         function init() {
 
                             var canvas2 = document.getElementById('imagesCanvas'); // canvas de fondo
                             var context2 = canvas2.getContext('2d'); // contexto de fondo
                             var background_image_name = "";
 
-                            <% case @vector %>
+                            <% case @image1 %>
                             <% when "bag1"%>
                             background_image_name = "bag1";
                             <% when "bag2"%>
@@ -96,15 +98,7 @@
                                 if (mousePos.y > element.top && mousePos.y < element.top + 30 && mousePos.x > element.left && mousePos.x < element.left + 30) {
                                     context.clearRect(0, 0, 200, 300); //borrar el area para que los colores no se superpongan
 
-                                    <% case @vector%>
-                                    <% when "scarf1"%>
-                                    draw_scarf_1(context, element.colour)
-                                    <% when "bag1"%>
-                                    draw_bag_1(context, element.colour, selector_pressed)
-                                    <% else %>
-                                    if(confirm("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags: \"Caroline Stardust\". \n  Desea ser redirigido?")) document.location = base_url.concat('/categories/1/articles/1');
-                                    //alert ("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags \"Caroline Stardust\"")
-                                    <%end%>
+                                    draw_article(context, element.colour, selector_pressed, gon.item.image1)
                                     //context.fillStyle = element.colour}
                                     context3.clearRect(selectors[selector_pressed].left, selectors[selector_pressed].top, 40, 40); //borrar el area para que los colores no se superpongan
                                     Draw_vector_selectors(selectors[selector_pressed], element.colour)
@@ -215,7 +209,7 @@
                         }
 
                         // ---Correción de posición de los vectores --- ///
-                        <% case @vector%>
+                        <% case @image1%>
                         <% when "scarf1"%>
                         vposl = 52;
                         vpost = 5;
@@ -226,6 +220,45 @@
 
                         context.translate(vposl, vpost);
                         context.scale(vxscale, vyscale);
+
+                        function draw_article(context, colour, sp, ref) {
+
+                           switch (sp) {
+                               case 0:
+                                   colour_1 = colour
+                                   break;
+                               case 1:
+                                   colour_2 = colour
+                                   break;
+                               case 2:
+                                   colour_3 = colour
+                                   break;
+                               case 3:
+                                   colour_4 = colour
+                                   break;
+                               case 4:
+                                   colour_5 = colour
+                                   break;
+                           }
+
+                           switch (ref) {
+                             case "bag1":
+                             draw_bag_1_colour_1(context, colour_1);
+                             draw_bag_1_colour_2(context, colour_2);
+                             draw_bag_1_colour_3(context, colour_3);
+                             draw_bag_1_colour_4(context, colour_4);
+                             draw_bag_1_colour_5(context, colour_5);
+                             break;
+                             case "scarf1":
+                             draw_scarf_1(context, colour_1)
+                             break;
+                             default:
+                             if (advised == false) {
+                             if(confirm("Aplicación en construcción; si desea explorar ésta funcionalidad, por favor seleccione el primer artículo de la categoría bags: \"Caroline Stardust\". \n  Desea ser redirigido?")) document.location = base_url.concat('/categories/1/articles/1');
+                           }
+                           advised = true
+                         }
+                       }
 
                         ////////////////////////      SCARFS   //////////////////////////
 
@@ -317,33 +350,6 @@
                         }
 
                         ///////////////////////////////////    BAGS   //////////////////////////////////
-
-                        function draw_bag_1(context, colour, sp) {
-
-                            switch (sp) {
-                                case 0:
-                                    colour_1 = colour
-                                    break;
-                                case 1:
-                                    colour_2 = colour
-                                    break;
-                                case 2:
-                                    colour_3 = colour
-                                    break;
-                                case 3:
-                                    colour_4 = colour
-                                    break;
-                                case 4:
-                                    colour_5 = colour
-                                    break;
-                            }
-
-                            draw_bag_1_colour_1(context, colour_1);
-                            draw_bag_1_colour_2(context, colour_2);
-                            draw_bag_1_colour_3(context, colour_3);
-                            draw_bag_1_colour_4(context, colour_4);
-                            draw_bag_1_colour_5(context, colour_5);
-                        }
 
                         function draw_bag_1_colour_1(context, colour) {
 
@@ -5648,6 +5654,21 @@
                             product_id = splited[8]
                             user_id = splited[6]
 
+                            var dfc = "rgba(255, 255, 255, 0)"
+                            var selected_colours = [colour_1, colour_2, colour_3, colour_4, colour_5]
+
+                            function selected_colours_count(){
+                              var defined_colours_count = 0
+                              for (i = 0; i < gon.item.parts_count; i++) {
+                                if (selected_colours[i] != dfc) {
+                                  defined_colours_count += 1
+                                }
+                              }
+                              return defined_colours_count
+                            }
+
+                            var defined_colours_count = selected_colours_count()
+                            if  (defined_colours_count == gon.item.parts_count) {
                             var request = new XMLHttpRequest();
                             //request.onload = callback;
                             request.open("post", base_url.toString().concat("/material_parts"));
@@ -5683,7 +5704,11 @@
                             var parameters4 = '{"part_id":"5", "material_color":"'.concat(colour_5).concat('", "product_id":"').concat(product_id).concat('"}')
                             request4.send(parameters4);
 
-                            window.location.replace(base_url.toString().concat("/users/").concat(user_id).concat("/products"));
+                                window.location.replace(base_url.toString().concat("/users/").concat(user_id).concat("/products"));
+                            }
+                            else {
+                           alert('Por favor selecciona todos los colores')
+                            }
 
                         }, false);
                     </script>
