@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'category#select'
   get '/categories/:category_id', to: 'articles#articles_index', as: 'category_articles'
   get '/categories/:category_id/articles/:article_id', to: 'articles#show', as: 'article_description'

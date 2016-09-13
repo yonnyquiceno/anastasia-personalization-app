@@ -12,27 +12,36 @@
 			</tr>
 		</thead>
 		<tbody>
+			<script>
+			var index = 0;
+			</script>
 			<%@products.each do |prod|%>
 			<tr>
 				<td><%= image_tag(asset_path(prod.article.image1.to_s + ".jpg"), :class => "cart-block--img")%></td>
 				<td>
 					<center>
-
-						<span id="box-one" class="color-box" )></span>
-						<span id="box-two" class="color-box"></span>
-						<span id="box-three" class="color-box"></span>
-						<span id="box-four" class="color-box"></span>
-						<span id="box-five" class="color-box"></span>
 						<script>
+							var id_one = Math.random().toString(36).substring(7);
+							var id_two = Math.random().toString(36).substring(7);
+							var id_three = Math.random().toString(36).substring(7);
+							var id_four = Math.random().toString(36).substring(7);
+							var id_five = Math.random().toString(36).substring(7);
+							document.write('<span id='.concat(id_one).concat(' class="color-box"> </span>'));
+							document.write('<span id='.concat(id_two).concat(' class="color-box"> </span>'));
+							document.write('<span id='.concat(id_three).concat(' class="color-box"> </span>'));
+							document.write('<span id='.concat(id_four).concat(' class="color-box"> </span>'));
+							document.write('<span id='.concat(id_five).concat(' class="color-box"> </span>'));
+
 							var product_colors = gon.product_colors
-							document.getElementById("box-one").style.backgroundColor = product_colors[0][0];
-							document.getElementById("box-two").style.backgroundColor = product_colors[0][1];
-							document.getElementById("box-three").style.backgroundColor = product_colors[0][2];
-							document.getElementById("box-four").style.backgroundColor = product_colors[0][3];
-							document.getElementById("box-five").style.backgroundColor = product_colors[0][4];
-							if (typeof product_colors[0][0] === 'undefined' || product_colors[0][0] === null) {
+							document.getElementById(id_one).style.backgroundColor = product_colors[index][0][0];
+							document.getElementById(id_two).style.backgroundColor = product_colors[index][0][1];
+							document.getElementById(id_three).style.backgroundColor = product_colors[index][0][2];
+							document.getElementById(id_four).style.backgroundColor = product_colors[index][0][3];
+							document.getElementById(id_five).style.backgroundColor = product_colors[index][0][4];
+							if (typeof product_colors[index][0][0] === 'undefined' || product_colors[index][0][0] === null) {
 								alert(' Aplicación en construcción, si desea observar el listado de colores elegidos  seleccione el primer producto de la categoría bags')
 							}
+							index += 1;
 						</script>
 					</center>
 				</td>

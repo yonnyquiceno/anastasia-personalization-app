@@ -6,7 +6,6 @@ class ManufacturerController < ApplicationController
   end
 
   def show
-    debugger
   end
 
   def new

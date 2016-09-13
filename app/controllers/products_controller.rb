@@ -1,25 +1,34 @@
 #:nodoc:
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:edit, :update, :destroy]
-  before_action :set_user, only: [:user_products_index, :user_data_registry]
+
+  before_action :set_products, only: [:user_products_index, :user_data_registry, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
   def user_products_index
-    # @products = Product.all if current_user.present? && current_user.is_admin
-    @products = @user.products.includes(:material_parts)
-    gon.product_colors = Array.new
-    @products.each do |product|
-    gon.product_colors << product.material_parts.map(&:material).map(&:color)
-    end
+    build_product_colors_array
   end
 
   def user_data_registry
-    @products = @user.products.includes(:material_parts)
-    gon.product_colors = Array.new
-    @products.each do |product|
-    gon.product_colors << product.material_parts.map(&:material).map(&:color)
+    build_product_colors_array
+  end
+
+  def initialize_product_colors_array
+    @product_colors = Array.new
+    @products.each do
+      @product_colors << []
     end
   end
+
+  def build_product_colors_array
+    initialize_product_colors_array
+    @products.each_with_index do |product, index|
+      @product_colors[index] << product.material_parts.map(&:material).map(&:color)
+    end
+    gon.product_colors =  @product_colors
+  end
+
+
+
 
   def index
      @products = Product.all
@@ -68,11 +77,7 @@ class ProductsController < ApplicationController
   end
   private :product_params
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
-  def find_product
-    @products = Product.find(params[:id])
+  def set_products
+    @products = current_user.products.includes(:material_parts)
   end
 end
