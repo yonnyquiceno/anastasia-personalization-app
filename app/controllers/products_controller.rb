@@ -1,7 +1,7 @@
 #:nodoc:
 class ProductsController < ApplicationController
 
-  before_action :set_products, only: [:user_products_index, :user_data_registry, :edit, :update, :destroy]
+  before_action :set_products, only: [:user_products_index, :user_data_registry, :delete_non_personalized_products, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
   def user_products_index
@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
 
   def initialize_product_colors_array
     @product_colors = Array.new
+    delete_non_personalized_products
     @products.each do
       @product_colors << []
     end
@@ -24,11 +25,14 @@ class ProductsController < ApplicationController
     @products.each_with_index do |product, index|
       @product_colors[index] << product.material_parts.map(&:material).map(&:color)
     end
-    gon.product_colors =  @product_colors
+    gon.product_colors = @product_colors
   end
 
-
-
+  def delete_non_personalized_products
+    @products.each do |product|
+      product.destroy unless product.material_parts.map(&:material).map(&:color).present?
+    end
+  end
 
   def index
      @products = Product.all

@@ -27,7 +27,8 @@ class ArticlesController < ApplicationController
 
   def colour_personalization
     @product.update(user: current_user)
-    @vector = @item.image1
+    gon.item = @item
+    @image1 = @item.image1
     @parts_count = @item.parts_count
   end
 
