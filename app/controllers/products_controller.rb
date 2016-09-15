@@ -34,8 +34,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    product = Product.by_id(params[:id]).by_user(current_user.id).first
+    product.destroy
+    redirect_to user_products_path
+  end
+
   def index
-     @products = Product.all
+    @products = Product.all
   end
 
   def show
@@ -71,9 +77,6 @@ class ProductsController < ApplicationController
     else
       render 'Edit'
     end
-  end
-
-  def destroy
   end
 
   def product_params

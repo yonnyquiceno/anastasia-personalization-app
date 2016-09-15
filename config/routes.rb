@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :category
     resources :manufacturer
   end
-
+  resources :users do
+    resources :products
+  end
 
 
 end

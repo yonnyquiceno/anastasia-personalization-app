@@ -1,4 +1,3 @@
-#:nodoc:
 class ArticlesController < ApplicationController
   before_action :set_items
   before_action :set_item, only: [:colour_personalization]
@@ -20,7 +19,7 @@ class ArticlesController < ApplicationController
       @user.save
       sign_in @user
     end
-    @product ||= Product.create(category_id: @item.category_id, article_id: @item.id)
+    @product ||= Product.create(category_id: @item.category_id, article_id: @item.id, approved: false, sended: false)
   end
 
 
